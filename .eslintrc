@@ -1,0 +1,111 @@
+/**
+ * ESLint Config.
+ *
+ * Used by `eslint-loader` in WebPack.
+ *
+ * Uses AirBnB as a style guide because it has got react
+ * support out of the box, and a few opinionated presets.
+ *
+ * @see https://medium.com/@uistephen/style-guides-for-linting-ecmascript-2015-eslint-common-google-airbnb-6c25fd3dff0
+ */
+{
+	"env": {
+		"browser": true,
+		"jquery": true
+	},
+	"parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+	"extends": ["eslint:recommended", "airbnb"],
+	"globals": {
+		"wp": true
+	},
+	"rules": {
+		"array-bracket-spacing": [2, "always"],
+		"arrow-body-style": 0,
+		"arrow-parens": [2, "always"],
+		"comma-dangle": [2, {
+			"arrays": "always-multiline",
+			"objects": "always-multiline",
+			"imports": "only-multiline",
+			"exports": "only-multiline",
+			"functions": "ignore"
+		}],
+		"computed-property-spacing": [2, "always"],
+		"import/no-extraneous-dependencies": 0,
+		"import/no-named-as-default": 0,
+		"import/no-unresolved": 0,
+		"import/prefer-default-export": 0,
+		"indent": [2, "tab", {
+			"SwitchCase": 1
+		}],
+		"jsx-a11y/label-has-for": 0,
+		"max-len": [1, 120],
+		"no-debugger": 1,
+		"no-param-reassign": 0,
+		"no-plusplus": 0,
+		"no-restricted-syntax": [2, "LabeledStatement", "WithStatement"],
+		"no-shadow": 0,
+		"no-tabs": 0,
+		"no-undef": 0,
+		"no-unused-vars": [1, {
+			"vars": "all",
+			"varsIgnorePattern": "_",
+			"args": "after-used",
+			"argsIgnorePattern": "_",
+			"ignoreRestSiblings": true
+		}],
+		"no-use-before-define": [2, "nofunc"],
+		"object-curly-newline": [2, {
+			"ExportDeclaration": {
+				"consistent": true,
+				"multiline": true
+			},
+			"ImportDeclaration": {
+				"consistent": true,
+				"multiline": true
+			},
+			"ObjectExpression": {
+				"consistent": true,
+				"multiline": true
+			},
+			"ObjectPattern": {
+				"consistent": true,
+				"multiline": true
+			}
+		}],
+		"quote-props": [2, "consistent-as-needed"],
+		"quotes": [2, "single", {
+			"allowTemplateLiterals": true,
+			"avoidEscape": true
+		}],
+		"react/destructuring-assignment": [2, "always", {
+			"ignoreClassFields": true
+		}],
+		"react/jsx-curly-spacing": [2, "always"],
+		"react/jsx-filename-extension": [1, {
+			"extensions": [".js", ".jsx"]
+		}],
+		"react/jsx-indent": [2, "tab"],
+		"react/jsx-indent-props": [2, "tab"],
+		"react/jsx-props-no-spreading": 0,
+		"react/prefer-stateless-function": 0,
+		"react/prop-types": 1,
+		"react/react-in-jsx-scope": 0,
+		"react/sort-comp": 0,
+		"require-jsdoc": 2,
+		"space-in-parens": [2, "always"],
+		"space-unary-ops": [2, {
+			"words": true,
+			"nonwords": false,
+			"overrides": {
+				"!": true
+			}
+		}],
+		"template-curly-spacing": [2, "always"]
+	}
+}
