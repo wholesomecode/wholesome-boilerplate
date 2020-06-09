@@ -4,7 +4,5 @@
  * The following styles get applied inside the editor only.
  */
 
-// Example block editor styles.
-.wp-block-wholesomecode-wholesome-boilerplate {
-	border: 1px dotted #ff0000;
-}
+// Import block styles.
+@import './blocks/example-block/scss/editor';

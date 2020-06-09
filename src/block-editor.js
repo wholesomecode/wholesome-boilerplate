@@ -9,4 +9,4 @@
 import './plugins/example-sidebar';
 
 // Import blocks
-import './blocks/example';
+import './blocks/example-block';
