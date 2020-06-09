@@ -41,7 +41,7 @@ The `/inc/namespace.php` file enqueues several file types. Just remove the parts
 12. classic-editor.scss: styles for the classic editor TinyMCE textarea.
 
 ### A settings panel that uses WordPress Editor (Gutenberg) Blocks
-Inspired by the CodeinWP article _[Making a “Plugin Options Page” With Gutenberg Components](https://www.codeinwp.com/blog/plugin-options-page-gutenberg/) by [Hardeep Asrani](https://twitter.com/HardeepAsrani)_ the boilerplate contains an example settings page built with WordPress Editor (Gutenberg) blocks.
+Inspired by the **CodeinWP** article _[Making a “Plugin Options Page” With Gutenberg Components](https://www.codeinwp.com/blog/plugin-options-page-gutenberg/) by [Hardeep Asrani](https://twitter.com/HardeepAsrani)_ the boilerplate contains an example settings page built with WordPress Editor (Gutenberg) blocks.
 
 ### An example block editor plugin (sidebar)
 The boilerplate contains an example custom sidebar plugin named `Example Sidebar`, this contains some quick start configuration, and inline documentation.
@@ -64,7 +64,7 @@ Note that the `/assets/` folder contains files specific to the WordPress.org plu
 6. screenshot-2.png: A second plugin screenshot, supports png, jpg, jpeg, gif.
 
 ## Namespace driven architecture.
-Inspired by Human Made Engineering Handbook on [Namespaced File Naming](https://engineering.hmn.md/standards/style/php/#namespaced-file-naming), the structure of this boilerplate uses the namespace based architecture.
+Inspired by the **Human Made** Engineering Handbook on [Namespaced File Naming](https://engineering.hmn.md/standards/style/php/#namespaced-file-naming), the structure of this boilerplate uses the namespace based architecture.
 
 ## Quick start guide
 
