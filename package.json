@@ -100,7 +100,7 @@
 		"wpcs:fix": "phpcbf -p -s -n . --standard=WordPress-Extra --extensions=php"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^7.1.0",
+		"@wordpress/scripts": "^8.0.0",
 		"css-loader": "^3.4.2",
 		"eslint": "^7.0.0",
 		"eslint-config-airbnb": "^18.1.0",

@@ -136,5 +136,5 @@ export default SidebarPermissions;
 // Typechecking the Component props.
 SidebarPermissions.propTypes = {
 	editPost: PropTypes.func.isRequired,
-	postMeta: PropTypes.func.isRequired,
+	postMeta: PropTypes.arrayOf( PropTypes.any ).isRequired,
 };
