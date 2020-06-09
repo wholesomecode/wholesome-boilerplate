@@ -1,0 +1,32 @@
+###
+# Stylelint Config.
+#
+# Used by the Stylelint Webpack Plugin.
+#
+# Uses the WordPress config from wp-scripts
+# and a few opinionated presets.
+#
+# The stylelint-order plugin, alphabetically
+# orders the CSS properties.
+###
+{
+	"extends": "stylelint-config-wordpress",
+	"plugins": [
+		"stylelint-order"
+	],
+	"rules": {
+		"color-hex-length": "long",
+		"font-family-name-quotes": null,
+		"function-url-quotes": "always",
+		"indentation": "tab",
+		"max-empty-lines": 2,
+		"no-missing-end-of-source-newline": true,
+		"number-leading-zero": "never",
+		"order/order": [
+			"custom-properties",
+			"declarations"
+		],
+		"order/properties-alphabetical-order": true,
+		"string-quotes": "single",
+	}
+}

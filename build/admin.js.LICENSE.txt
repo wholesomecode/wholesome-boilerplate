@@ -1,0 +1,149 @@
+/*! ../../settings */
+
+/*! ../helpers/typeof */
+
+/*! ./arrayLikeToArray */
+
+/*! ./arrayWithoutHoles */
+
+/*! ./assertThisInitialized */
+
+/*! ./iterableToArray */
+
+/*! ./nonIterableSpread */
+
+/*! ./setPrototypeOf */
+
+/*! ./settings/settings/index */
+
+/*! ./unsupportedIterableToArray */
+
+/*! /Users/mattwatson/Sites/wholesome-examples/app/public/wp-content/plugins/wholesome-boilerplate/src/admin.js */
+
+/*! /Users/mattwatson/Sites/wholesome-examples/app/public/wp-content/plugins/wholesome-boilerplate/src/admin.scss */
+
+/*! @babel/runtime/helpers/assertThisInitialized */
+
+/*! @babel/runtime/helpers/classCallCheck */
+
+/*! @babel/runtime/helpers/createClass */
+
+/*! @babel/runtime/helpers/defineProperty */
+
+/*! @babel/runtime/helpers/getPrototypeOf */
+
+/*! @babel/runtime/helpers/inherits */
+
+/*! @babel/runtime/helpers/possibleConstructorReturn */
+
+/*! @babel/runtime/helpers/toConsumableArray */
+
+/*! @wordpress/api */
+
+/*! @wordpress/components */
+
+/*! @wordpress/element */
+
+/*! @wordpress/i18n */
+
+/*! exports provided: default */
+
+/*! no exports provided */
+
+/*! no static exports found */
+
+/*!**********************!*\
+  !*** ./src/admin.js ***!
+  \**********************/
+
+/*!************************!*\
+  !*** ./src/admin.scss ***!
+  \************************/
+
+/*!*************************!*\
+  !*** ./src/settings.js ***!
+  \*************************/
+
+/*!**************************************!*\
+  !*** external {"this":["wp","api"]} ***!
+  \**************************************/
+
+/*!***************************************!*\
+  !*** external {"this":["wp","i18n"]} ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** ./src/settings/settings/index.js ***!
+  \****************************************/
+
+/*!******************************************!*\
+  !*** external {"this":["wp","element"]} ***!
+  \******************************************/
+
+/*!*********************************************!*\
+  !*** external {"this":["wp","components"]} ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** multi ./src/admin.js ./src/admin.scss ***!
+  \*********************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
+  \*********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
+  \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+  \****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \******************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
+  \**********************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
+  \**************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \***************************************************************************/

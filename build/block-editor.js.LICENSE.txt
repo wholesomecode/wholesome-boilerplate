@@ -1,0 +1,226 @@
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/*! ../../../settings */
+
+/*! ../components/Sidebar */
+
+/*! ../helpers/typeof */
+
+/*! ./assertThisInitialized */
+
+/*! ./blocks/example */
+
+/*! ./checkPropTypes */
+
+/*! ./cjs/react-is.development.js */
+
+/*! ./components/Sidebar */
+
+/*! ./containers/Sidebar */
+
+/*! ./edit */
+
+/*! ./factoryWithTypeCheckers */
+
+/*! ./lib/ReactPropTypesSecret */
+
+/*! ./plugins/example-sidebar */
+
+/*! ./save */
+
+/*! ./setPrototypeOf */
+
+/*! /Users/mattwatson/Sites/wholesome-examples/app/public/wp-content/plugins/wholesome-boilerplate/src/block-editor.js */
+
+/*! /Users/mattwatson/Sites/wholesome-examples/app/public/wp-content/plugins/wholesome-boilerplate/src/block-editor.scss */
+
+/*! @babel/runtime/helpers/classCallCheck */
+
+/*! @babel/runtime/helpers/createClass */
+
+/*! @babel/runtime/helpers/defineProperty */
+
+/*! @babel/runtime/helpers/getPrototypeOf */
+
+/*! @babel/runtime/helpers/inherits */
+
+/*! @babel/runtime/helpers/possibleConstructorReturn */
+
+/*! @wordpress/blocks */
+
+/*! @wordpress/components */
+
+/*! @wordpress/compose */
+
+/*! @wordpress/data */
+
+/*! @wordpress/edit-post */
+
+/*! @wordpress/element */
+
+/*! @wordpress/i18n */
+
+/*! @wordpress/plugins */
+
+/*! exports provided: default */
+
+/*! exports provided: sidebarName, sidebarTitle, default */
+
+/*! no exports provided */
+
+/*! no static exports found */
+
+/*! object-assign */
+
+/*! prop-types */
+
+/*! react-is */
+
+/*!*************************!*\
+  !*** ./src/settings.js ***!
+  \*************************/
+
+/*!*****************************!*\
+  !*** ./src/block-editor.js ***!
+  \*****************************/
+
+/*!*******************************!*\
+  !*** ./src/block-editor.scss ***!
+  \*******************************/
+
+/*!************************************!*\
+  !*** ./src/blocks/example/edit.js ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/blocks/example/save.js ***!
+  \************************************/
+
+/*!*************************************!*\
+  !*** ./src/blocks/example/index.js ***!
+  \*************************************/
+
+/*!***************************************!*\
+  !*** external {"this":["wp","data"]} ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** external {"this":["wp","i18n"]} ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
+
+/*!*****************************************!*\
+  !*** external {"this":["wp","blocks"]} ***!
+  \*****************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/prop-types/index.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** external {"this":["wp","compose"]} ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** external {"this":["wp","element"]} ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** external {"this":["wp","plugins"]} ***!
+  \******************************************/
+
+/*!*******************************************!*\
+  !*** external {"this":["wp","editPost"]} ***!
+  \*******************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** external {"this":["wp","components"]} ***!
+  \*********************************************/
+
+/*!**********************************************!*\
+  !*** ./src/plugins/example-sidebar/index.js ***!
+  \**********************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/prop-types/checkPropTypes.js ***!
+  \***************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
+  \*********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./src/plugins/example-sidebar/components/Sidebar.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./src/plugins/example-sidebar/containers/Sidebar.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** multi ./src/block-editor.js ./src/block-editor.scss ***!
+  \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \*************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
+  \***************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
+  \**********************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
+  \**************************************************************************/
+
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
