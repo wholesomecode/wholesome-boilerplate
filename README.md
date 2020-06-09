@@ -2,7 +2,10 @@
 
 Wholesome Boilerplate is a WordPress plugin boilerplate that supports best practices and a modern workflow.
 
-Created by [Matt Watson](https://mattwatson.codes) - [Wholesome Code](https://wholesomecode.ltd).
+Created by [Matt Watson](https://mattwatson.codes) ([@mattwatsoncodes](https://twitter.com/mattwatsoncodes)) - [Wholesome Code](https://wholesomecode.ltd.) 
+([@wholesomecode](https://twitter.com/wholesomecode)).
+
+
 
 ## Features
 
