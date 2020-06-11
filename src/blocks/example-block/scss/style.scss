@@ -1,0 +1,50 @@
+/**
+ * Block
+ *
+ * The styles for the Block.
+ */
+
+.example-block {
+	align-items: flex-start;
+	background-color: #e2dccd;
+	display: flex;
+
+	&__figure {
+		height: 200px;
+		margin: 1em;
+		margin-right: 1em;
+		width: 200px !important;
+	}
+
+	&__body {
+		flex: 1;
+		margin-right: 1em;
+	}
+
+	&.is-style-image-right {
+		flex-direction: row-reverse;
+
+		.example-block__body {
+			margin-left: 1em;
+			margin-right: 0;
+		}
+	}
+}
+
+.entry-content {
+
+	.example-block {
+
+		&__title {
+			margin-top: .1em;
+		}
+
+		&__body {
+
+			p:last-child {
+				margin-bottom: 2em;
+			}
+		}
+
+	}
+}

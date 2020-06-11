@@ -6,22 +6,22 @@
  */
 
 /**
-  * WordPress Imports.
-  * - compose
-  *   Composes multiple higher-order components into a single higher-order
-  *   component.
-  *   @see https://developer.wordpress.org/block-editor/packages/packages-compose/#compose
-  *
-  * - withDispatch
-  *   Higher-order component used to add dispatch props using registered
-  *   action creators.
-  *   @see https://developer.wordpress.org/block-editor/packages/packages-data/#withDispatch
-  *
-  * - withSelect
-  *   Higher-order component used to inject state-derived props using
-  *   registered selectors.
-  *   @see https://developer.wordpress.org/block-editor/packages/packages-data/#withSelect
-  */
+ * WordPress Imports.
+ * - compose
+ *   Composes multiple higher-order components into a single higher-order
+ *   component.
+ *   @see https://developer.wordpress.org/block-editor/packages/packages-compose/#compose
+ *
+ * - withDispatch
+ *   Higher-order component used to add dispatch props using registered
+ *   action creators.
+ *   @see https://developer.wordpress.org/block-editor/packages/packages-data/#withDispatch
+ *
+ * - withSelect
+ *   Higher-order component used to inject state-derived props using
+ *   registered selectors.
+ *   @see https://developer.wordpress.org/block-editor/packages/packages-data/#withSelect
+ */
 import { compose } from '@wordpress/compose';
 import { withDispatch, withSelect } from '@wordpress/data';
 

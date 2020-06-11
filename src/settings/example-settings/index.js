@@ -168,28 +168,28 @@ class App extends Component {
 				<div className="wholesome-boilerplate-header">
 					<div className="wholesome-boilerplate-container">
 						<div className="wholesome-boilerplate-logo">
-							<h1>{ __( 'Wholesome Boilerplate Settings' ) }</h1>
+							<h1>{ __( 'Wholesome Boilerplate Settings', 'wholesome-boilerplate' ) }</h1>
 						</div>
 					</div>
 				</div>
 
 				<div className="wholesome-boilerplate-main">
 					<PanelBody
-						title={ __( 'Template' ) }
+						title={ __( 'Template', 'wholesome-boilerplate' ) }
 					>
 						<PanelRow>
 							<SelectControl
 								className="wholesome-boilerplate-text-field"
 								// eslint-disable-next-line
-								help={ __( 'Choose the template you wish to display instead of a membership post if a user is not logged in.' ) }
-								label={ __( 'Template' ) }
+								help={ __( 'Choose the template you wish to display instead of a membership post if a user is not logged in.', 'wholesome-boilerplate' ) }
+								label={ __( 'Template', 'wholesome-boilerplate' ) }
 								onChange={ ( value ) => this.changeOptions(
 									'wholesome_boilerplate_logged_out_template',
 									value
 								) }
 								options={ [
 									{
-										label: __( 'Please Select...' ),
+										label: __( 'Please Select...', 'wholesome-boilerplate' ),
 										value: '',
 									},
 									...pageTemplates,
@@ -201,12 +201,13 @@ class App extends Component {
 					</PanelBody>
 
 					<PanelBody
-						title={ __( 'Google Analytics' ) }
+						title={ __( 'Google Analytics', 'wholesome-boilerplate' ) }
 					>
 						<PanelRow>
 							<BaseControl
-								label={ __( 'Google Analytics Key' ) }
-								help={ __( 'In order to use Google Analytics, you need to use an API key.' ) }
+								label={ __( 'Google Analytics Key', 'wholesome-boilerplate' ) }
+								help={ __( 'In order to use Google Analytics, you need to use an API key.',
+									'wholesome-boilerplate' ) }
 								id="wholesome-boilerplate-options-google-analytics-api"
 								className="wholesome-boilerplate-text-field"
 							>
@@ -214,7 +215,7 @@ class App extends Component {
 									type="text"
 									id="wholesome-boilerplate-options-google-analytics-api"
 									value={ wholesomeExamplesAnalyticsKey }
-									placeholder={ __( 'Google Analytics API Key' ) }
+									placeholder={ __( 'Google Analytics API Key', 'wholesome-boilerplate' ) }
 									disabled={ isAPISaving }
 									onChange={ ( e ) => this.setState( {
 										wholesome_boilerplate_analytics_key: e.target.value,
@@ -231,21 +232,22 @@ class App extends Component {
 											wholesomeExamplesAnalyticsKey
 										) }
 									>
-										{ __( 'Save' ) }
+										{ __( 'Save', 'wholesome-boilerplate' ) }
 									</Button>
 
 									<ExternalLink
 										href="#"
 									>
-										{ __( 'Get API Key' ) }
+										{ __( 'Get API Key', 'wholesome-boilerplate' ) }
 									</ExternalLink>
 								</div>
 							</BaseControl>
 						</PanelRow>
 						<PanelRow>
 							<ToggleControl
-								label={ __( 'Track Admin Users?' ) }
-								help={ __( 'Would you like to track views of logged-in admin accounts?' ) }
+								label={ __( 'Track Admin Users?', 'wholesome-boilerplate' ) }
+								help={ __( 'Would you like to track views of logged-in admin accounts?',
+									'wholesome-boilerplate' ) }
 								checked={ wholesomeExamplesAnalyticsStatus }
 								onChange={ () => this.changeOptions(
 									'wholesome_boilerplate_analytics_status',
