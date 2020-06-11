@@ -20,7 +20,6 @@
 		"function-url-quotes": "always",
 		"indentation": "tab",
 		"max-empty-lines": 2,
-		"no-descending-specificity": null,
 		"no-missing-end-of-source-newline": true,
 		"number-leading-zero": "never",
 		"order/order": [
