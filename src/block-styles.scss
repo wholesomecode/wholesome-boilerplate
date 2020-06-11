@@ -5,9 +5,5 @@
  * and in the editor.
  */
 
-// Example block front-end styles.
-.wp-block-wholesomecode-wholesome-boilerplate {
-	background-color: #000000;
-	color: #ffffff;
-	padding: 2px;
-}
+// Import block styles.
+@import './blocks/example-block/scss/style';
