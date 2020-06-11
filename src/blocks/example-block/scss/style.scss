@@ -16,10 +16,6 @@
 		width: 200px !important;
 	}
 
-	&__title {
-		margin-top: .1em;
-	}
-
 	&__body {
 		flex: 1;
 		margin-right: 1em;
@@ -32,5 +28,23 @@
 			margin-left: 1em;
 			margin-right: 0;
 		}
+	}
+}
+
+.entry-content {
+
+	.example-block {
+
+		&__title {
+			margin-top: .1em;
+		}
+
+		&__body {
+
+			p:last-child {
+				margin-bottom: 2em;
+			}
+		}
+
 	}
 }
