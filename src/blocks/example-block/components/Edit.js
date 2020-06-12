@@ -77,9 +77,12 @@ export default function Edit( props ) {
 	 */
 	const onChangeImageID = ( image ) => {
 		setAttributes( {
-			imageID: image.id.toString(),
-			imageURL: image.url,
 			imageAlt: image.alt,
+			imageID: image.id.toString(),
+			imageHeight: image.height.toString(),
+			imageThumbnail: image.sizes.thumbnail.url,
+			imageURL: image.url,
+			imageWidth: image.width.toString(),
 		} );
 	};
 

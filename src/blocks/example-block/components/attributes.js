@@ -15,10 +15,19 @@ const attributes = {
 	imageAlt: {
 		type: 'string',
 	},
+	imageHeight: {
+		type: 'string',
+	},
 	imageID: {
 		type: 'string',
 	},
+	imageThumbnail: {
+		type: 'string',
+	},
 	imageURL: {
+		type: 'string',
+	},
+	imageWidth: {
 		type: 'string',
 	},
 	summary: {

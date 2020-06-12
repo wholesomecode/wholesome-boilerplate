@@ -43,9 +43,9 @@ import PropTypes from 'prop-types';
  *   Internationalization - multilingual translation support.
  *   @see https://developer.wordpress.org/block-editor/developers/internationalization/
  */
-import { BaseControl, Button, PanelBody } from '@wordpress/components';
+import { BaseControl, Button, PanelBody, ResponsiveWrapper, Spinner } from '@wordpress/components';
 import { InspectorControls as InspectorControlsOriginal, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { Component } from '@wordpress/element';
+import { Component, Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -57,8 +57,12 @@ export default class InspectorControls extends Component {
 	render() {
 		const {
 			attributes: {
+				imageAlt,
+				imageHeight,
 				imageID,
+				imageThumbnail,
 				imageURL,
+				imageWidth,
 			},
 			onChangeImageID,
 			setAttributes,
@@ -72,42 +76,63 @@ export default class InspectorControls extends Component {
 						initialOpen={ false }
 						title={ __( 'Edit Image', 'wholesome-boilerplate' ) }
 					>
-						<BaseControl
-							className="example-block-inspector-controls__media-upload"
-							label={ __( 'Choose an Image', 'wholesome-boilerplate' ) }
-						>
+						<div className="editor-post-featured-image">
 							<MediaUpload
 								onSelect={ onChangeImageID }
 								allowedTypes={ [ 'image' ] }
 								type="image"
+								modalClass="editor-post-featured-image__media-modal"
 								value={ imageID }
 								render={ ( { open } ) => (
-									<Button
-										label={ __( 'Choose Image', 'wholesome-boilerplate' ) }
-										isSecondary
-										isLarge
-										onClick={ open }
-									>
-										{ __( 'Choose Image', 'wholesome-boilerplate' ) }
-									</Button>
+									<Fragment>
+										{ imageURL ? (
+											<Button className="editor-post-featured-image__preview" onClick={ open }>
+												<ResponsiveWrapper
+													isInline
+													naturalWidth={ imageWidth }
+													naturalHeight={ imageHeight }
+												>
+													<img src={ imageURL } alt={ imageAlt } />
+												</ResponsiveWrapper>
+											</Button>
+										) : (
+											<Button className="editor-post-featured-image__toggle" onClick={ open }>
+												{ __( 'Set block image', 'wholesome-boilerplate' ) }
+											</Button>
+										) }
+									</Fragment>
 								) }
 							/>
+
 							{ imageURL && (
-								<Button
-									isLink
-									isDestructive
-									label={ __( 'Remove Image', 'wholesome-boilerplate' ) }
-									onClick={ () => setAttributes( {
-										imageID: '',
-										imageURL: null,
-										imageAlt: null,
-										imageType: null,
-									} ) }
-								>
-									{ __( 'Remove Image', 'wholesome-boilerplate' ) }
-								</Button>
+								<Fragment>
+									<MediaUpload
+										title={ __( 'Replace image', 'wholesome-boilerplate' ) }
+										onSelect={ onChangeImageID }
+										type="image"
+										modalClass="editor-post-featured-image__media-modal"
+										render={ ( { open } ) => (
+											<Button onClick={ open } isSecondary isLarge>
+												{ __( 'Replace image', 'wholesome-boilerplate' ) }
+											</Button>
+										) }
+									/>
+									<Button
+										isLink
+										isDestructive
+										label={ __( 'Remove block image', 'wholesome-boilerplate' ) }
+										onClick={ () => setAttributes( {
+											imageID: '',
+											imageURL: null,
+											imageAlt: null,
+											imageType: null,
+										} ) }
+									>
+										{ __( 'Remove Image', 'wholesome-boilerplate' ) }
+									</Button>
+								</Fragment>
 							) }
-						</BaseControl>
+						</div>
 					</PanelBody>
 				</InspectorControlsOriginal>
 			</MediaUploadCheck>
@@ -118,8 +143,12 @@ export default class InspectorControls extends Component {
 // Typechecking the Component props.
 InspectorControls.propTypes = {
 	attributes: PropTypes.shape( {
+		imageAlt: PropTypes.string,
+		imageHeight: PropTypes.string,
 		imageID: PropTypes.string,
+		imageThumbnail: PropTypes.string,
 		imageURL: PropTypes.string,
+		imageWidth: PropTypes.string,
 	} ).isRequired,
 	onChangeImageID: PropTypes.func.isRequired,
 	setAttributes: PropTypes.func.isRequired,
