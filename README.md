@@ -12,11 +12,17 @@ Created by [Matt Watson](https://mattwatson.codes) ([@mattwatsoncodes](https://t
 #### An example settings panel that uses WordPress Editor (Gutenberg) Blocks
 Inspired by the **CodeinWP** article _[Making a “Plugin Options Page” With Gutenberg Components](https://www.codeinwp.com/blog/plugin-options-page-gutenberg/) by [Hardeep Asrani](https://twitter.com/HardeepAsrani)_ the boilerplate contains an example settings page built with WordPress Editor (Gutenberg) blocks.
 
+<img src="https://github.com/wholesomecode/wholesome-boilerplate/blob/master/assets/screenshot-1.png" alt="Block based settings panel" width="500">
+
 #### An example block editor plugin (sidebar)
 The boilerplate contains an example custom sidebar plugin named `Example Sidebar`, this contains some quick start configuration, and inline documentation.
 
+<img src="https://github.com/wholesomecode/wholesome-boilerplate/blob/master/assets/screenshot-3.png" alt="Custom sidebar" width="500">
+
 #### An example block
 The boilerplate contains an example block named `Example`, this block contains some quick start configuration, and inline documentation.
+
+<img src="https://github.com/wholesomecode/wholesome-boilerplate/blob/master/assets/screenshot-2.png" alt="Basic Block with Inspector and Block Controls" width="500">
 
 ### *Lots* of inline documentation
 The boilerplate is not shy about telling you how something is done, or where the inspiration for the approach came from. Every file in this plugin is crammed with inline documentation to help you quickly find your feet.
