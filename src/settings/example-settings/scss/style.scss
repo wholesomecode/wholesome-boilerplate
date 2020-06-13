@@ -1,33 +1,13 @@
-.settings_page_wholesome_boilerplate {
-	background: #f6f6f6;
-	box-sizing: border-box;
-	font-family: Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-	font-size: 14px;
-	position: relative;
-
-	#wpcontent {
-		padding-left: 0;
-	}
-
-	.auto-fold {
-
-		#wpcontent {
-			padding-left: 0;
-		}
-	}
-}
-
 #wholesome-boilerplate-settings {
 
 	.components-placeholder {
-		background: #f6f6f6;
-		// margin-bottom: 25vh;
-		// margin-top: 25vh;
+		background: #f1f1f1;
 	}
 
 	.wholesome-boilerplate-header {
 		background-color: #ffffff;
 		box-shadow: 0 1px 0 rgba(213, 213, 213, .5), 0 1px 2px #eeeeee;
+		margin-left: -2em;
 		padding: 20px 10px;
 
 		.wholesome-boilerplate-container {
@@ -52,10 +32,6 @@
 			border: 1px solid #e2e4e7;
 			margin: 25px 0;
 
-			.components-panel__body-toggle {
-				border-bottom: 1px solid #d6e2ed;
-			}
-
 			.components-panel__row {
 				margin: 0;
 				padding: 10px;
@@ -68,7 +44,7 @@
 						margin-bottom: 10px;
 					}
 
-					&.wholesome-boilerplate-text-field {
+					&.wholesome-boilerplate-field {
 						width: 100%;
 
 						.components-base-control__field {
@@ -79,12 +55,12 @@
 								margin-bottom: 10px;
 							}
 
-							input {
+							input,
+							select {
 								border: 1px solid #b7c9d9;
 								border-radius: 3px;
 								box-shadow: none;
 								color: #444444;
-								font-size: 14px;
 								height: 40px;
 								margin: 0 0 10px 0;
 								max-width: inherit;
@@ -106,41 +82,7 @@
 							}
 
 							select {
-								border: 1px solid #b7c9d9;
-								border-radius: 3px;
-								box-shadow: none;
-								color: #444444;
-								font-size: 14px;
-								height: 40px;
-								margin: 0 0 10px 0;
-								max-width: inherit;
-								padding: 5px 15px;
-								width: 100%;
-
-								&:disabled {
-									background: #f6f6f6;
-									border-color: #eeeeee;
-									color: #bbbbbb;
-								}
-
-								&:focus {
-									border-color: #00a0d2;
-									box-shadow: 0 0 0 1px #00a0d2;
-									outline: 2px solid transparent;
-									outline-offset: -2px;
-								}
-							}
-
-							.wholesome-boilerplate-text-field-button-group {
-								align-items: center;
-								display: flex;
-								margin: 2px 0 15px;
-
-								.is-primary {
-									font-size: 14px;
-									margin-right: 10px;
-									padding: 2px 20px;
-								}
+								padding-top: 6px;
 							}
 						}
 					}
