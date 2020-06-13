@@ -2,7 +2,7 @@
 /**
  * Example Settings.
  *
- * Settings for the plugin, using Gutenberg Components.
+ * Settings for the plugin that uses WordPress Block Editor (Gutenberg) Components.
  *
  * Original example taken from CodeinWP.
  * @see https://www.codeinwp.com/blog/plugin-options-page-gutenberg/
@@ -15,18 +15,21 @@ namespace WholesomeCode\WholesomeBoilerplate\ExampleSettings; // @codingStandard
 use const WholesomeCode\WholesomeBoilerplate\PLUGIN_PREFIX;
 use const WholesomeCode\WholesomeBoilerplate\ROOT_DIR;
 
-const SETTING_ANALYTICS           = 'wholesome_boilerplate_settings';
-const SETTING_ANALYTICS_KEY       = 'wholesome_boilerplate_analytics_key';
-const SETTING_ANALYTICS_STATUS    = 'wholesome_boilerplate_analytics_status';
-const SETTING_LOGGED_OUT          = 'wholesome_boilerplate_logged_out';
-const SETTING_LOGGED_OUT_TEMPLATE = 'wholesome_boilerplate_logged_out_template';
+// Settings.
+const SETTING_EXAMPLE_SETTINGS = PLUGIN_PREFIX . '_example_settings';
+
+// Fields.
+const SETTING_EXAMPLE_DROPDOWN   = PLUGIN_PREFIX . '_example_dropdown';
+const SETTING_EXAMPLE_INPUT      = PLUGIN_PREFIX . '_example_input';
+const SETTING_EXAMPLE_INPUT_SAVE = PLUGIN_PREFIX . '_example_input_save';
+const SETTING_EXAMPLE_TOGGLE     = PLUGIN_PREFIX . '_example_toggle';
+
 
 /**
  * Example Settings
  *
  * - Register Settings.
  * - Add Settings Page.
- * - Add Page Templates to settings.
  *
  * @return void
  */
@@ -45,8 +48,8 @@ function setup() : void {
  */
 function register_settings() : void {
 	register_setting(
-		SETTING_ANALYTICS,
-		SETTING_ANALYTICS_KEY,
+		SETTING_EXAMPLE_SETTINGS,
+		SETTING_EXAMPLE_DROPDOWN,
 		array(
 			'default'      => '',
 			'show_in_rest' => true,
@@ -55,22 +58,32 @@ function register_settings() : void {
 	);
 
 	register_setting(
-		SETTING_ANALYTICS,
-		SETTING_ANALYTICS_STATUS,
+		SETTING_EXAMPLE_SETTINGS,
+		SETTING_EXAMPLE_INPUT,
+		array(
+			'default'      => '',
+			'show_in_rest' => true,
+			'type'         => 'string',
+		)
+	);
+
+	register_setting(
+		SETTING_EXAMPLE_SETTINGS,
+		SETTING_EXAMPLE_INPUT_SAVE,
+		array(
+			'default'      => '',
+			'show_in_rest' => true,
+			'type'         => 'string',
+		)
+	);
+
+	register_setting(
+		SETTING_EXAMPLE_SETTINGS,
+		SETTING_EXAMPLE_TOGGLE,
 		array(
 			'default'      => false,
 			'show_in_rest' => true,
 			'type'         => 'boolean',
-		)
-	);
-
-	register_setting(
-		SETTING_LOGGED_OUT,
-		SETTING_LOGGED_OUT_TEMPLATE,
-		array(
-			'default'      => '',
-			'show_in_rest' => true,
-			'type'         => 'string',
 		)
 	);
 }
@@ -108,24 +121,29 @@ function render_html() : void {
 /**
  * Block Settings.
  *
- * Pass the meta key into the block settings so that it can be accessed via
- * the settings import via /src/settings.js.
+ * Pass dropdown values into the settings so that they
+ * can be accessed via the settings block.
  *
  * @param array $settings Existing block settings.
  * @return array
  */
 function block_settings( $settings ) : array {
-	$page_templates         = get_page_templates();
-	$page_templates_options = [];
+	$example_dropdown_options = [
+		[
+			'label' => esc_html__( 'Example One', 'wholesome-boilerplate' ),
+			'value' => 'example-one',
+		],
+		[
+			'label' => esc_html__( 'Example Two', 'wholesome-boilerplate' ),
+			'value' => 'example-two',
+		],
+	];
 
-	foreach ( $page_templates as $key => $value ) {
-		$page_templates_options[] = [
-			'label' => $key,
-			'value' => $value,
-		];
-	}
-
-	$settings['pageTemplates'] = $page_templates_options;
+	$settings['exampleDropdown']        = SETTING_EXAMPLE_DROPDOWN;
+	$settings['exampleDropdownOptions'] = $example_dropdown_options;
+	$settings['exampleInput']           = SETTING_EXAMPLE_INPUT;
+	$settings['exampleInputSave']       = SETTING_EXAMPLE_INPUT_SAVE;
+	$settings['exampleToggle']          = SETTING_EXAMPLE_TOGGLE;
 
 	return $settings;
 }
