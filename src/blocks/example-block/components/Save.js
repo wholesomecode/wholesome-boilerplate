@@ -39,6 +39,10 @@ export default function Save( {
 	 *   - hentry: http://microformats.org/wiki/hentry
 	 *   As this is an article, in theory we could use https://schema.org/Article
 	 *   but that is more appropriate for a full page article, not a component.
+	 *
+	 * - `wp-image-${imageID}`
+	 *   This code is parsed by WordPress and produces a responsive srcset on the
+	 *   image tag.
 	 */
 	return (
 		<article className={ `${ className } example-block h-entry hentry` }>
