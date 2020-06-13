@@ -14,6 +14,10 @@ namespace WholesomeCode\WholesomeBoilerplate\ExampleSettings; // @codingStandard
 
 use const WholesomeCode\WholesomeBoilerplate\PLUGIN_PREFIX;
 use const WholesomeCode\WholesomeBoilerplate\ROOT_DIR;
+use const WholesomeCode\WholesomeBoilerplate\ROOT_FILE;
+
+// Settings URL slug.
+const SETTING_SLUG = 'wholesome_boilerplate';
 
 // Settings.
 const SETTING_EXAMPLE_SETTINGS = PLUGIN_PREFIX . '_example_settings';
@@ -24,12 +28,12 @@ const SETTING_EXAMPLE_INPUT      = PLUGIN_PREFIX . '_example_input';
 const SETTING_EXAMPLE_INPUT_SAVE = PLUGIN_PREFIX . '_example_input_save';
 const SETTING_EXAMPLE_TOGGLE     = PLUGIN_PREFIX . '_example_toggle';
 
-
 /**
  * Example Settings
  *
- * - Register Settings.
- * - Add Settings Page.
+ * - Register settings.
+ * - Add settings page.
+ * - Add settings page link to plugin screen.
  *
  * @return void
  */
@@ -37,6 +41,7 @@ function setup() : void {
 	add_action( 'init', __NAMESPACE__ . '\\register_settings' );
 	add_action( 'admin_menu', __NAMESPACE__ . '\\add_settings_page' );
 	add_filter( PLUGIN_PREFIX . '_block_settings', __NAMESPACE__ . '\\block_settings' );
+	add_action( 'plugin_action_links_' . plugin_basename( ROOT_FILE ), __NAMESPACE__ . '\\settings_link' );
 }
 
 /**
@@ -100,7 +105,7 @@ function add_settings_page() : void {
 		__( 'Wholesome Boilerplate Settings', 'wholesome-boilerplate' ),
 		__( 'Wholesome Boilerplate Settings', 'wholesome-boilerplate' ),
 		'manage_options',
-		'wholesome_boilerplate',
+		SETTING_SLUG,
 		__NAMESPACE__ . '\\render_html'
 	);
 }
@@ -146,4 +151,18 @@ function block_settings( $settings ) : array {
 	$settings['exampleToggle']          = SETTING_EXAMPLE_TOGGLE;
 
 	return $settings;
+}
+
+/**
+ * Settings Link.
+ *
+ * Adds a link to the settings page to the plugin dashboard.
+ *
+ * @param array $links Array of links.
+ * @return array
+ */
+function settings_link( $links ) : array {
+	array_unshift( $links, '<a href="options-general.php?page=' . esc_attr( SETTING_SLUG ) . '">' . esc_html__( 'Settings', 'wholesome-boilerplate' ) . '</a>' );
+
+	return $links;
 }
