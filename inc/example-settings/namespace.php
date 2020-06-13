@@ -1,6 +1,6 @@
 <?php
 /**
- * Settings.
+ * Example Settings.
  *
  * Settings for the plugin, using Gutenberg Components.
  *
@@ -10,7 +10,7 @@
  * @package wholesomecode/wholesome_boilerplate
  */
 
-namespace WholesomeCode\WholesomeBoilerplate\Settings; // @codingStandardsIgnoreLine
+namespace WholesomeCode\WholesomeBoilerplate\ExampleSettings; // @codingStandardsIgnoreLine
 
 use const WholesomeCode\WholesomeBoilerplate\PLUGIN_PREFIX;
 use const WholesomeCode\WholesomeBoilerplate\ROOT_DIR;
@@ -22,7 +22,7 @@ const SETTING_LOGGED_OUT          = 'wholesome_boilerplate_logged_out';
 const SETTING_LOGGED_OUT_TEMPLATE = 'wholesome_boilerplate_logged_out_template';
 
 /**
- * Setup
+ * Example Settings
  *
  * - Register Settings.
  * - Add Settings Page.

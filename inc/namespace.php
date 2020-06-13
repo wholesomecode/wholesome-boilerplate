@@ -42,12 +42,20 @@ function setup() : void {
 	 */
 
 	/**
-	 * Settings.
+	 * Example Settings.
 	 *
 	 * Settings for the Plugin.
 	 */
-	require_once ROOT_DIR . '/inc/settings/namespace.php';
-	Settings\setup();
+	require_once ROOT_DIR . '/inc/example-settings/namespace.php';
+	ExampleSettings\setup();
+
+	/**
+	 * Example Sidebar.
+	 *
+	 * Sidebar for Posts.
+	 */
+	require_once ROOT_DIR . '/inc/example-sidebar/namespace.php';
+	ExampleSidebar\setup();
 }
 
 /**
