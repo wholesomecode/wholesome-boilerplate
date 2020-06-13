@@ -5,29 +5,20 @@
  * attributes to store data.
  *
  * We break it into its own file, as otherwise the index file
- * can become bloated, and we can easily see which attributes
- * are available in each component if we extract the props at the
- * start of the component.
+ * will become bloated.
  *
- * TODO: Note about summary.
+ * Note: The summary attribute uses a CSS class as its selector.
+ * The value of this attribute will be saved in the blocks Save view
+ * that matches this class, not in the surrounding block comment.
  */
 const attributes = {
 	imageAlt: {
 		type: 'string',
 	},
-	imageHeight: {
-		type: 'string',
-	},
 	imageID: {
-		type: 'string',
-	},
-	imageThumbnail: {
-		type: 'string',
+		type: 'number',
 	},
 	imageURL: {
-		type: 'string',
-	},
-	imageWidth: {
 		type: 'string',
 	},
 	summary: {

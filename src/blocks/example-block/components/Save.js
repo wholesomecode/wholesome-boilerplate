@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 export default function Save( {
 	attributes: {
 		imageAlt,
+		imageID,
 		imageURL,
 		summary,
 		title,
@@ -44,7 +45,7 @@ export default function Save( {
 			{ imageURL && (
 				<img
 					alt={ imageAlt }
-					className="example-block__figure"
+					className={ `example-block__figure wp-image-${ imageID }` }
 					src={ imageURL }
 				/>
 			) }
@@ -63,6 +64,7 @@ Save.propTypes = {
 	className: PropTypes.string.isRequired,
 	attributes: PropTypes.shape( {
 		imageAlt: PropTypes.string,
+		imageID: PropTypes.number,
 		imageURL: PropTypes.string,
 		summary: PropTypes.array,
 		title: PropTypes.string,
