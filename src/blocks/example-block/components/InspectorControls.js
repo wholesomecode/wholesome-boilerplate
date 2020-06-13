@@ -8,11 +8,17 @@
 import PropTypes from 'prop-types';
 
 /**
- * WordPress Imports.
+ * External Imports
  *
- * - BaseControl
- *   Generate labels and help text for components.
- *   @see https://developer.wordpress.org/block-editor/components/base-control/
+ * - _get
+ *   Gets the value at path of object. If the resolved value is undefined,
+ *   the defaultValue is returned in its place.
+ *   @see https://lodash.com/docs/4.17.15#get
+ */
+import _get from 'lodash/get';
+
+/**
+ * WordPress Imports.
  *
  * - Button
  *   Generates a button.
@@ -21,6 +27,14 @@ import PropTypes from 'prop-types';
  * - PanelBody
  *   Provides a collapsable panel component.
  *   @see https://developer.wordpress.org/block-editor/components/panel/#development-guidelines
+ *
+ * - ResponsiveWrapper
+ *   Make the image responsive to the current viewpoint.
+ *   @see https://developer.wordpress.org/block-editor/components/responsive-wrapper/
+ *
+ * - Spinner
+ *   Spinners notify users that their action is being processed.
+ *   @see https://developer.wordpress.org/block-editor/components/spinner/
  *
  * - InspectorControls
  *   Controls for the block that appear in the block sidebar.
@@ -39,11 +53,15 @@ import PropTypes from 'prop-types';
  *   A base class to create WordPress Components (Refs, state and lifecycle hooks).
  *   @see https://developer.wordpress.org/block-editor/packages/packages-element/#Component
  *
+ * - Fragment
+ *   A component which renders its children without any wrapping element.
+ *   @see https://developer.wordpress.org/block-editor/packages/packages-element/#Fragment
+ *
  * - __
  *   Internationalization - multilingual translation support.
  *   @see https://developer.wordpress.org/block-editor/developers/internationalization/
  */
-import { BaseControl, Button, PanelBody, ResponsiveWrapper, Spinner } from '@wordpress/components';
+import { Button, PanelBody, ResponsiveWrapper, Spinner } from '@wordpress/components';
 import { InspectorControls as InspectorControlsOriginal, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Component, Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -52,21 +70,25 @@ import { __ } from '@wordpress/i18n';
  * Register Component
  *
  * Create a sidebar panel for the block that allows us to edit an image.
+ *
+ * Note: We are using the classes that the block editor (Gutenberg) uses natively for
+ * the featured image selector, this keeps our styles inline with the WordPress dashboard.
  */
 export default class InspectorControls extends Component {
 	render() {
 		const {
 			attributes: {
 				imageAlt,
-				imageHeight,
 				imageID,
-				imageThumbnail,
 				imageURL,
-				imageWidth,
 			},
+			imageObject,
 			onChangeImageID,
 			setAttributes,
 		} = this.props;
+
+		const imageHeight = _get( imageObject, 'media_details.height', 0 );
+		const imageWidth = _get( imageObject, 'media_details.width', 0 );
 
 		return (
 			<MediaUploadCheck>
@@ -87,13 +109,17 @@ export default class InspectorControls extends Component {
 									<Fragment>
 										{ imageURL ? (
 											<Button className="editor-post-featured-image__preview" onClick={ open }>
-												<ResponsiveWrapper
-													isInline
-													naturalWidth={ imageWidth }
-													naturalHeight={ imageHeight }
-												>
-													<img src={ imageURL } alt={ imageAlt } />
-												</ResponsiveWrapper>
+												{ imageWidth && imageHeight ? (
+													<ResponsiveWrapper
+														isInline
+														naturalWidth={ imageWidth }
+														naturalHeight={ imageHeight }
+													>
+														<img src={ imageURL } alt={ imageAlt } />
+													</ResponsiveWrapper>
+												) : (
+													<Spinner />
+												) }
 											</Button>
 										) : (
 											<Button className="editor-post-featured-image__toggle" onClick={ open }>
@@ -122,10 +148,9 @@ export default class InspectorControls extends Component {
 										isDestructive
 										label={ __( 'Remove block image', 'wholesome-boilerplate' ) }
 										onClick={ () => setAttributes( {
-											imageID: '',
+											imageID: 0,
 											imageURL: null,
 											imageAlt: null,
-											imageType: null,
 										} ) }
 									>
 										{ __( 'Remove Image', 'wholesome-boilerplate' ) }
@@ -144,12 +169,14 @@ export default class InspectorControls extends Component {
 InspectorControls.propTypes = {
 	attributes: PropTypes.shape( {
 		imageAlt: PropTypes.string,
-		imageHeight: PropTypes.string,
-		imageID: PropTypes.string,
-		imageThumbnail: PropTypes.string,
+		imageID: PropTypes.number,
 		imageURL: PropTypes.string,
-		imageWidth: PropTypes.string,
 	} ).isRequired,
+	imageObject: PropTypes.objectOf( PropTypes.any ),
 	onChangeImageID: PropTypes.func.isRequired,
 	setAttributes: PropTypes.func.isRequired,
+};
+
+InspectorControls.defaultProps = {
+	imageObject: {},
 };

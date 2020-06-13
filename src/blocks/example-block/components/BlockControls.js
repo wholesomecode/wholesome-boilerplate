@@ -84,7 +84,7 @@ export default class BlockControls extends Component {
 // Typechecking the Component props.
 BlockControls.propTypes = {
 	attributes: PropTypes.shape( {
-		imageID: PropTypes.string,
+		imageID: PropTypes.number,
 	} ).isRequired,
 	onChangeImageID: PropTypes.func.isRequired,
 };

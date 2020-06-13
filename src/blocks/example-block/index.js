@@ -31,7 +31,7 @@ import { __ } from '@wordpress/i18n';
  *   The block Save function (shows on the front end of the site).
  */
 import attributes from './components/attributes';
-import Edit from './components/Edit';
+import Edit from './containers/Edit';
 import Save from './components/Save';
 
 /**

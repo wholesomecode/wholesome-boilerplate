@@ -58,11 +58,13 @@ export default function Edit( props ) {
 	const {
 		attributes,
 		className,
+		imageObject,
 		setAttributes,
 	} = props;
 
 	const {
 		imageAlt,
+		imageID,
 		imageURL,
 		summary,
 		title,
@@ -78,11 +80,8 @@ export default function Edit( props ) {
 	const onChangeImageID = ( image ) => {
 		setAttributes( {
 			imageAlt: image.alt,
-			imageID: image.id.toString(),
-			imageHeight: image.height.toString(),
-			imageThumbnail: image.sizes.thumbnail.url,
+			imageID: parseInt( image.id, 10 ),
 			imageURL: image.url,
-			imageWidth: image.width.toString(),
 		} );
 	};
 
@@ -117,7 +116,10 @@ export default function Edit( props ) {
 	 *   HTML of the block.
 	 */
 	return [
-		<InspectorControls key="InspectorControls" { ...{ attributes, onChangeImageID, setAttributes } } />,
+		<InspectorControls
+			key="InspectorControls"
+			{ ...{ attributes, imageObject, onChangeImageID, setAttributes } }
+		/>,
 		<BlockControls key="BlockControls" { ...{ attributes, onChangeImageID } } />,
 		<article className={ `${ className } example-block h-entry hentry` } key="Block">
 			{ ! imageURL ? (
@@ -134,7 +136,7 @@ export default function Edit( props ) {
 			) : (
 				<img
 					alt={ imageAlt }
-					className="example-block__figure"
+					className={ `example-block__figure wp-image-${ imageID }` }
 					src={ imageURL }
 				/>
 			) }
@@ -165,8 +167,15 @@ export default function Edit( props ) {
 Edit.propTypes = {
 	className: PropTypes.string.isRequired,
 	attributes: PropTypes.shape( {
+		imageAlt: PropTypes.string,
+		imageID: PropTypes.number,
 		imageURL: PropTypes.string,
 		summary: PropTypes.array,
 		title: PropTypes.string,
 	} ).isRequired,
+	imageObject: PropTypes.objectOf( PropTypes.any ),
+};
+
+Edit.defaultProps = {
+	imageObject: {},
 };
