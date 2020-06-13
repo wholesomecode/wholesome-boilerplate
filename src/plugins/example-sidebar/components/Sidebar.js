@@ -5,7 +5,7 @@
  * HOC. These are contained within their own components folder ../containers.
  *
  * Note that post metadata is used within this component. This is registered via
- * PHP within /inc/sidebar-permissions.
+ * PHP within /inc/example-sidebar.
  */
 
 /**
@@ -70,19 +70,19 @@ import { __ } from '@wordpress/i18n';
 import settings from '../../../settings';
 
 // The prefix for our CSS classes.
-const baseClassName = 'sidebar-permissions';
+const baseClassName = 'example-sidebar';
 
 // The name and title of the plugin, so that it can be registered and if
 // needed accessed within a filter.
-export const sidebarName = 'sidebar-permissions'; // Could just set to baseClassName, but keeping full for example.
-export const sidebarTitle = __( 'Permissions', 'wholesome-boilerplate' );
+export const sidebarName = 'example-sidebar'; // Could just set to baseClassName, but keeping full for example.
+export const sidebarTitle = __( 'Example Sidebar', 'wholesome-boilerplate' );
 
 /**
- * Sidebar Permissions.
+ * Example Sidebar.
  *
- * Basic sidebar with one slide toggle that updates a post meta value.
+ * Basic sidebar that updates a post meta value.
  */
-class SidebarPermissions extends Component {
+class ExampleSidebar extends Component {
 	render() {
 		// Props populated via Higher-Order Component.
 		const {
@@ -92,8 +92,8 @@ class SidebarPermissions extends Component {
 
 		// Retrieve the PHP meta key from the settings, and then access the
 		// value from the postMeta object.
-		const { metaKeyLoginRequired } = settings;
-		const loginRequired = postMeta[ metaKeyLoginRequired ];
+		const { metaKeyExampleToggle } = settings;
+		const exampleToggle = postMeta[ metaKeyExampleToggle ];
 
 		return (
 			<Fragment>
@@ -105,20 +105,21 @@ class SidebarPermissions extends Component {
 					title={ sidebarTitle }
 				>
 					<PanelBody
-						className={ `${ baseClassName }__example` }
-						title={ __( 'Permissions', 'wholesome-boilerplate' ) }
+						className={ `${ baseClassName }__example_panel` }
+						title={ __( 'Example Sidebar', 'wholesome-boilerplate' ) }
 					>
 						<ToggleControl
-							checked={ loginRequired }
-							help={ __( 'User must be logged-in in to view this post.', 'wholesome-boilerplate' ) }
-							label={ __( 'Require Login', 'wholesome-boilerplate' ) }
+							checked={ exampleToggle }
+							help={ __( 'This toggle updates the post meta value for the example toggle.',
+								'wholesome-boilerplate' ) }
+							label={ __( 'Example Toggle Control', 'wholesome-boilerplate' ) }
 							onChange={ ( value ) => {
 								// On change use editPost to dispatch the updated
 								// postMeta object.
 								editPost( {
 									...postMeta,
 									meta: {
-										[ metaKeyLoginRequired ]: value,
+										[ metaKeyExampleToggle ]: value,
 									},
 								} );
 							} }
@@ -131,10 +132,10 @@ class SidebarPermissions extends Component {
 }
 
 // Export the Sidebar.
-export default SidebarPermissions;
+export default ExampleSidebar;
 
 // Typechecking the Component props.
-SidebarPermissions.propTypes = {
+ExampleSidebar.propTypes = {
 	editPost: PropTypes.func.isRequired,
-	postMeta: PropTypes.arrayOf( PropTypes.any ).isRequired,
+	postMeta: PropTypes.objectOf( PropTypes.any ).isRequired,
 };
