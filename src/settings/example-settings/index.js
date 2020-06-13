@@ -21,10 +21,6 @@
  *   Buttons let users take actions and make choices with a single click or tap.
  *   @see https://developer.wordpress.org/block-editor/components/button/
  *
- * - ExternalLink
- *   Component for an external link.
- *   @see https://developer.wordpress.org/block-editor/components/external-link/
- *
  * - PanelBody
  *   The PanelBody creates a collapsible container that can be toggled open or closed.
  *   @see https://developer.wordpress.org/block-editor/components/panel/#panelbody
@@ -66,7 +62,6 @@ import api from '@wordpress/api';
 import {
 	BaseControl,
 	Button,
-	ExternalLink,
 	PanelBody,
 	PanelRow,
 	Placeholder,
@@ -100,12 +95,20 @@ class App extends Component {
 
 		this.changeOptions = this.changeOptions.bind( this );
 
+		const {
+			exampleDropdown,
+			exampleInput,
+			exampleInputSave,
+			exampleToggle,
+		} = settings;
+
 		this.state = {
 			isAPILoaded: false,
 			isAPISaving: false,
-			wholesome_boilerplate_analytics_status: false,
-			wholesome_boilerplate_analytics_key: '',
-			wholesome_boilerplate_logged_out_template: '',
+			[ exampleDropdown ]: '',
+			[ exampleInput ]: '',
+			[ exampleInputSave ]: '',
+			[ exampleToggle ]: false,
 		};
 	}
 
@@ -115,13 +118,20 @@ class App extends Component {
 
 			const { isAPILoaded } = this.state;
 
+			const {
+				exampleDropdown,
+				exampleInput,
+				exampleInputSave,
+				exampleToggle,
+			} = settings;
+
 			if ( isAPILoaded === false ) {
 				this.settings.fetch().then( ( response ) => {
 					this.setState( {
-						wholesome_boilerplate_analytics_status:
-							Boolean( response.wholesome_boilerplate_analytics_status ),
-						wholesome_boilerplate_analytics_key: response.wholesome_boilerplate_analytics_key,
-						wholesome_boilerplate_logged_out_template: response.wholesome_boilerplate_logged_out_template,
+						[ exampleDropdown ]: response[ exampleDropdown ],
+						[ exampleInput ]: response[ exampleInput ],
+						[ exampleInputSave ]: response[ exampleInputSave ],
+						[ exampleToggle ]: Boolean( response[ exampleToggle ] ),
 						isAPILoaded: true,
 					} );
 				} );
@@ -146,14 +156,21 @@ class App extends Component {
 
 	render() {
 		const {
+			exampleDropdown,
+			exampleDropdownOptions,
+			exampleInput,
+			exampleInputSave,
+			exampleToggle,
+		} = settings;
+
+		const {
 			isAPILoaded,
 			isAPISaving,
-			wholesome_boilerplate_analytics_key: wholesomeExamplesAnalyticsKey,
-			wholesome_boilerplate_analytics_status: wholesomeExamplesAnalyticsStatus,
-			wholesome_boilerplate_logged_out_template: wholesomeExamplesLoggedOutTemplate,
+			[ exampleDropdown ]: exampleDropdownValue,
+			[ exampleInput ]: exampleInputValue,
+			[ exampleInputSave ]: exampleInputSaveValue,
+			[ exampleToggle ]: exampleToggleValue,
 		} = this.state;
-
-		const { pageTemplates } = settings;
 
 		if ( ! isAPILoaded ) {
 			return (
@@ -175,16 +192,16 @@ class App extends Component {
 
 				<div className="wholesome-boilerplate-main">
 					<PanelBody
-						title={ __( 'Template', 'wholesome-boilerplate' ) }
+						title={ __( 'Settings Panel One', 'wholesome-boilerplate' ) }
 					>
 						<PanelRow>
 							<SelectControl
 								className="wholesome-boilerplate-text-field"
 								// eslint-disable-next-line
-								help={ __( 'Choose the template you wish to display instead of a membership post if a user is not logged in.', 'wholesome-boilerplate' ) }
-								label={ __( 'Template', 'wholesome-boilerplate' ) }
+								help={ __( 'When you alter the dropdown, it saves the site option instantly in the background.', 'wholesome-boilerplate' ) }
+								label={ __( 'Example Dropdown', 'wholesome-boilerplate' ) }
 								onChange={ ( value ) => this.changeOptions(
-									'wholesome_boilerplate_logged_out_template',
+									[ exampleDropdown ],
 									value
 								) }
 								options={ [
@@ -192,68 +209,86 @@ class App extends Component {
 										label: __( 'Please Select...', 'wholesome-boilerplate' ),
 										value: '',
 									},
-									...pageTemplates,
+									...exampleDropdownOptions,
 								] }
-								value={ wholesomeExamplesLoggedOutTemplate }
+								value={ exampleDropdownValue }
 							/>
 						</PanelRow>
-
 					</PanelBody>
 
 					<PanelBody
-						title={ __( 'Google Analytics', 'wholesome-boilerplate' ) }
+						title={ __( 'Settings Panel Two', 'wholesome-boilerplate' ) }
 					>
 						<PanelRow>
 							<BaseControl
-								label={ __( 'Google Analytics Key', 'wholesome-boilerplate' ) }
-								help={ __( 'In order to use Google Analytics, you need to use an API key.',
+								label={ __( 'Example Input', 'wholesome-boilerplate' ) }
+								help={ __( 'When you type the site option is saved instantly in the background.',
 									'wholesome-boilerplate' ) }
-								id="wholesome-boilerplate-options-google-analytics-api"
+								id={ exampleInput }
 								className="wholesome-boilerplate-text-field"
 							>
 								<input
 									type="text"
-									id="wholesome-boilerplate-options-google-analytics-api"
-									value={ wholesomeExamplesAnalyticsKey }
-									placeholder={ __( 'Google Analytics API Key', 'wholesome-boilerplate' ) }
+									id={ exampleInput }
+									value={ exampleInputValue }
+									placeholder={ __( 'Example Input', 'wholesome-boilerplate' ) }
+									onChange={ ( e ) => this.changeOptions(
+										[ exampleInput ],
+										e.target.value
+									) }
+								/>
+							</BaseControl>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label={ __( 'Example Toggle', 'wholesome-boilerplate' ) }
+								// eslint-disable-next-line max-len
+								help={ __( 'When you slide the toggle the site option is saved instantly in the background',
+									'wholesome-boilerplate' ) }
+								checked={ exampleToggleValue }
+								onChange={ () => this.changeOptions(
+									[ exampleToggle ],
+									! exampleToggleValue
+								) }
+							/>
+						</PanelRow>
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Settings Panel Three', 'wholesome-boilerplate' ) }
+					>
+						<PanelRow>
+							<BaseControl
+								label={ __( 'Example Input with Save', 'wholesome-boilerplate' ) }
+								help={ __( 'When you type, the option is not saved until you click the save button.',
+									'wholesome-boilerplate' ) }
+								id={ [ exampleInputSave ] }
+								className="wholesome-boilerplate-text-field"
+							>
+								<input
+									type="text"
+									id={ [ exampleInputSave ] }
+									value={ exampleInputSaveValue }
+									placeholder={ __( 'Example Input with Save', 'wholesome-boilerplate' ) }
 									disabled={ isAPISaving }
 									onChange={ ( e ) => this.setState( {
-										wholesome_boilerplate_analytics_key: e.target.value,
+										[ exampleInputSave ]: e.target.value,
 									} ) }
 								/>
-
 								<div className="wholesome-boilerplate-text-field-button-group">
 									<Button
 										isPrimary
 										isLarge
 										disabled={ isAPISaving }
 										onClick={ () => this.changeOptions(
-											'wholesome_boilerplate_analytics_key',
-											wholesomeExamplesAnalyticsKey
+											[ exampleInputSave ],
+											exampleInputSaveValue
 										) }
 									>
 										{ __( 'Save', 'wholesome-boilerplate' ) }
 									</Button>
-
-									<ExternalLink
-										href="#"
-									>
-										{ __( 'Get API Key', 'wholesome-boilerplate' ) }
-									</ExternalLink>
 								</div>
 							</BaseControl>
-						</PanelRow>
-						<PanelRow>
-							<ToggleControl
-								label={ __( 'Track Admin Users?', 'wholesome-boilerplate' ) }
-								help={ __( 'Would you like to track views of logged-in admin accounts?',
-									'wholesome-boilerplate' ) }
-								checked={ wholesomeExamplesAnalyticsStatus }
-								onChange={ () => this.changeOptions(
-									'wholesome_boilerplate_analytics_status',
-									! wholesomeExamplesAnalyticsStatus
-								) }
-							/>
 						</PanelRow>
 					</PanelBody>
 				</div>
