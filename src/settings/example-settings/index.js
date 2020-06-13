@@ -196,7 +196,7 @@ class App extends Component {
 					>
 						<PanelRow>
 							<SelectControl
-								className="wholesome-boilerplate-text-field"
+								className="wholesome-boilerplate-field"
 								// eslint-disable-next-line
 								help={ __( 'When you alter the dropdown, it saves the site option instantly in the background.', 'wholesome-boilerplate' ) }
 								label={ __( 'Example Dropdown', 'wholesome-boilerplate' ) }
@@ -225,7 +225,7 @@ class App extends Component {
 								help={ __( 'When you type the site option is saved instantly in the background.',
 									'wholesome-boilerplate' ) }
 								id={ exampleInput }
-								className="wholesome-boilerplate-text-field"
+								className="wholesome-boilerplate-field"
 							>
 								<input
 									type="text"
@@ -263,7 +263,7 @@ class App extends Component {
 								help={ __( 'When you type, the option is not saved until you click the save button.',
 									'wholesome-boilerplate' ) }
 								id={ [ exampleInputSave ] }
-								className="wholesome-boilerplate-text-field"
+								className="wholesome-boilerplate-field"
 							>
 								<input
 									type="text"
@@ -275,7 +275,7 @@ class App extends Component {
 										[ exampleInputSave ]: e.target.value,
 									} ) }
 								/>
-								<div className="wholesome-boilerplate-text-field-button-group">
+								<div className="wholesome-boilerplate-field-button-group">
 									<Button
 										isPrimary
 										isLarge
