@@ -29,9 +29,6 @@ function setup() : void {
 	 *
 	 * Block assets enqueued with `enqueue_block_assets` and
 	 * `enqueue_block_editor_assets`, allowing multiple blocks within the project.
-	 *
-	 * For the alternate `register_block_type` method (enqueueing assets for a singular
-	 * block) see /documentation/alternatives/enqueue-block-assets.php
 	 */
 	enqueue_assets();
 

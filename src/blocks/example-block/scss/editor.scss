@@ -1,0 +1,15 @@
+/**
+ * Editor
+ *
+ * The styles for the Block Editor.
+ */
+
+.example-block {
+
+	&__figure {
+
+		&.components-placeholder {
+			width: 200px;
+		}
+	}
+}
