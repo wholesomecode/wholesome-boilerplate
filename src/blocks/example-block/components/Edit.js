@@ -175,7 +175,3 @@ Edit.propTypes = {
 	} ).isRequired,
 	imageObject: PropTypes.objectOf( PropTypes.any ),
 };
-
-Edit.defaultProps = {
-	imageObject: {},
-};
