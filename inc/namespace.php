@@ -64,7 +64,7 @@ function enqueue_assets() {
 	add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_block_styles', 10 );
 
 	// Block Editor Assets - scripts and styles for the block editor only.
-	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets', 10 );
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_block_editor_assets', 10 );
 
 	// Plugin Assets - scripts and styles for the front end of the site.
 	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_plugin_assets', 10 );
